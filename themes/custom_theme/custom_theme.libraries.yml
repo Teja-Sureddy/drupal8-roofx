@@ -1,0 +1,48 @@
+jquery:
+    js:
+        js/vendor/jquery-3.6.0.min.js: { minified: true, weight: -20 }
+        js/jquery.magnific-popup.min.js: { minified: true }
+        js/jquery.odometer.min.js: {minified: true }
+        js/jquery.appear.js: {}
+    dependencies:
+        - core/jquery
+        - core/drupal.ajax
+        - core/drupal
+        - core/drupalSettings
+        - core/jquery.once
+
+global:
+    css:
+        theme:
+            css/bootstrap.min.css: { minified: true }
+            css/animate.min.css: { minified: true }
+            css/magnific-popup.css: {}
+            css/fontawesome-all.min.css: { minified: true }
+            css/odometer.css: {}
+            css/slick.css: {}
+            css/tg-cursor.css: {}
+            css/default.css: {}
+            css/jarallax.css: {}
+    js:
+       js/bootstrap.min.js: { minified: true }
+       js/imagesloaded.pkgd.min.js: { minified: true }
+       js/slick.min.js: {}
+       js/slick-animation.min.js: { minified: true }
+       js/ajax-form.js: {}
+       js/jarallax.min.js: { minified: true }
+       js/parallax.min.js: { minified: true }
+       js/gsap.js: { }
+       js/ScrollTrigger.js: {}
+       js/SplitText.js: {}
+       js/gsap-animation.js: {}
+       js/tg-cursor.min.js: { minified: true }
+       js/wow.min.js: {}
+
+main:
+    css:
+        theme:
+            css/style.css: {}
+            css/responsive.css: {}
+            css/menu.css: {}
+    js:
+        js/main.js: {}

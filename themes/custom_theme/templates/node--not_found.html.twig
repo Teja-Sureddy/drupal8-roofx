@@ -1,0 +1,43 @@
+
+<main>
+
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb-area breadcrumb-bg" data-background="{{ file_url(content.field_top_banner['#items'].entity.uri.value) }}">
+        <div class="breadcrumb-shape" data-background="{{ file_url(content.field_top_banner['#items'].entity.uri.value) }}"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-content">
+                        <h2 class="title">{{node.label}}</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{node.label}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- error-area -->
+    <section class="error-area pt-120 pb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="error-img">
+                        <img src="{{ file_url(content.field_not_found_image['#items'].entity.uri.value) }}" alt="">
+                    </div>
+                    <div class="error-content">
+                        <h2 class="title">{{content.field_not_found_message.0}}</h2>
+                        <a href="/" class="btn">Back to Home page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- error-area-end -->
+
+</main>
