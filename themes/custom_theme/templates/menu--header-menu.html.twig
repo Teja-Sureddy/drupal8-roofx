@@ -3,13 +3,11 @@
 <ul{{ attributes.addClass(menu_level == 0 ? classes : dropdown_classes) }} class="navigation">
 {% for item in items %}
 {% set item_classes = item.url.getOptions('container_attributes').class | split(" ") %}
-{% set menu_attributes = menus_attribute(items | keys[loop.index0]) %}
 {% set item_classes = [
       item.is_expanded ? 'menu-item-has-children open' : '',
       item.in_active_trail ? 'active active-trail',
       loop.first ? '',
-      loop.last ? '',
-      menu_attributes.item.class ? menu_attributes.item.class,
+      loop.last ? ''
     ]
 %}
     <li{{ item.attributes.addClass(item_classes) }}>

@@ -1,0 +1,42 @@
+<h2 class="title">Contact Us</h2>
+<p>Send us a message and we' ll respond as soon as possible</p>
+
+<div class="contact-form">
+    <form{{ attributes }}>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-grp">
+                    {{ element.elements.first_name }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-grp">
+                    {{ element.elements.last_name }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-grp">
+                    {{ element.elements.email_address }}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-grp">
+                    {{ element.elements.phone_number }}
+                </div>
+            </div>
+        </div>
+        <div class="form-grp">
+            {{ element.elements.subject }}
+        </div>
+        <div class="form-grp">
+            {{ element.elements.message }}
+        </div>
+
+        {{ title_prefix }}
+        {{ element.form_build_id }}
+        {{ element.form_token }}
+        {{ element.form_id }}
+        {{ element.elements.actions }}
+        {{ title_suffix }}
+        </form>
+</div>

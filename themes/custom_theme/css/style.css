@@ -5160,7 +5160,7 @@ label {
 }
 .contact-info-wrap .list-wrap {
 	display: flex;
-	align-items: center;
+	align-items: start;
 	gap: 25px;
 }
 .contact-info-item .icon {
@@ -5177,7 +5177,7 @@ label {
 }
 .contact-info-item .content a {
 	display: block;
-	color: var(--tg-heading-font-color);
+	color: var(--tg-paragraph-color);
 }
 .contact-info-item .content a:hover {
 	color: var(--tg-primary-color);

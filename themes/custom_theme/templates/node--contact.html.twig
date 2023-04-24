@@ -1,0 +1,89 @@
+<main>
+
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb-area breadcrumb-bg" data-background="{{ file_url(content.field_contact_top_banner['#items'].entity.uri.value) }}">
+        <div class="breadcrumb-shape" data-background="{{ file_url(content.field_contact_top_banner['#items'].entity.uri.value) }}"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-content">
+                        <h2 class="title">{{node.label}}</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{node.label}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- contact-area -->
+    <section class="contact-area pt-120 pb-120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-6 col-lg-10">
+                    <div class="contact-form-wrap" data-background="{{ file_url(content.field_contact_form_background['#items'].entity.uri.value) }}">
+                        {{ drupal_entity('webform', 'contact_us') }}
+                    </div>
+                </div>
+                <div class="col-xl-6 col-lg-10">
+                    <div class="contact-info-wrap">
+                        <h2 class="title">{{content.field_help_title.0}}</h2>
+                        <p>{{content.field_help_description.0}}</p>
+                        <ul class="list-wrap">
+                            <li>
+                                <div class="contact-info-item">
+                                    <div class="icon">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div class="content">
+                                    {% for val in node.field_phone %}
+                                        <a href="tel:{{val.value}}">{{val.value}}</a>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-info-item">
+                                    <div class="icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="content">
+                                    {% for val in node.field_email %}
+                                        <a href="mailto:{{val.value}}">{{val.value}}</a>
+                                    {% endfor %}
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="contact-info-item">
+                                    <div class="icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="content">
+                                        {{content.field_address.0}}
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- contact-map -->
+                    <div id="contact-map">
+                        <iframe
+                            src="{{content.field_maps_link.0}}"
+                            allowfullscreen loading="lazy"></iframe>
+                    </div>
+                    <!-- contact-map-end -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- contact-area-end -->
+
+</main>
