@@ -5145,6 +5145,10 @@ label {
 .contact-form-wrap .contact-form .btn {
 	width: 100%;
 }
+.contact-form-wrap .contact-form .btn:hover, .contact-form-wrap .contact-form .btn:focus{
+	background-color: var(--tg-secondary-color);
+	color: var(--tg-white);
+}
 .contact-info-wrap {
 	background: var(--tg-gray);
 	padding: 60px 65px;
