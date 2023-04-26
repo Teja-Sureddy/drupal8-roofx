@@ -5,6 +5,12 @@ DRUPAL VERSIONS
   Database Version 5.5.5-10.4.17-MariaDB
   PHP Version 7.4.14
 
+
+CONFIGURATION
+---------------------
+
+composer require phpmailer/phpmailer - will add phpmailer to vendor
+
 WEBFORMS
 ---------------------
 

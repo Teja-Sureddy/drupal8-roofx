@@ -1,0 +1,145 @@
+<main>
+
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb-area breadcrumb-bg" data-background="{{ file_url(content.field_about_top_banner['#items'].entity.uri.value) }}">
+        <div class="breadcrumb-shape" data-background="{{ file_url(content.field_about_top_banner['#items'].entity.uri.value) }}"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-content">
+                        <h2 class="title">{{node.label}}</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{node.label}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- about-area -->
+    <section class="about-area inner-about-area pt-120 pb-120">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-lg-6 order-0 order-lg-2">
+                    <div class="about-img-wrap">
+                        <img src="{{ file_url(content.field_about_image_one['#items'].entity.uri.value) }}" alt="" class="wow fadeInRight"
+                            data-wow-delay=".4s">
+                        <img src="{{ file_url(content.field_about_image_two['#items'].entity.uri.value) }}" alt="" class="wow fadeInRight"
+                            data-wow-delay=".2s">
+                        <div class="about-experiences-wrap">
+                            {% for val in node.field_about_image_points %}
+                                <div class="experiences-item">
+                                    <div class="icon">
+                                        <img src="{{ file_url(val.entity.field_icon.entity.fileuri) }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h6 class="title">{{val.entity.field_text.value}}</h6>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <div class="about-content">
+                        <div class="section-title mb-25">
+                            <span class="sub-title">{{content.field_about_heading.0}}</span>
+                            <h2 class="title">{{content.field_about_title.0}}</h2>
+                        </div>
+                        <p>{{content.field_about_description.0}}</p>
+                        <div class="about-list">
+                            <ul class="list-wrap">
+                                {% for val in node.field_about_points %}
+                                    <li><i class="fas fa-check"></i>{{val.value}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-area-end -->
+
+
+    <!-- work-area -->
+    <section class="work-area">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="section-title text-center mb-50">
+                        <span class="sub-title">{{content.field_plan_heading.0}}</span>
+                        <h2 class="title">{{content.field_plan_title.0}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for index, val in node.field_plan_process %}
+                    <div class="col-xl-3 col-md-6">
+                        <div class="work-item">
+                            <div class="work-thumb">
+                                <img src="{{ file_url(val.entity.field_icon.entity.fileuri) }}" alt="">
+                                <h4 class="number">{{index+1}}</h4>
+                            </div>
+                            <div class="work-content">
+                                <h2 class="title">{{ val.entity.field_text.value }}</h2>
+                                <p>{{ val.entity.field_description.value }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- work-area-end -->
+
+    <!-- history-area -->
+    <section class="history-area pt-120 pb-120">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="history-img-wrap">
+                        <ul class="list-wrap">
+                            <li>
+                                <img src="{{ file_url(content.field_history_image_one['#items'].entity.uri.value) }}" alt="">
+                            </li>
+                            <li>
+                                <img src="{{ file_url(content.field_history_image_two['#items'].entity.uri.value) }}" alt="">
+                                {% if content.field_history_video_link.0 %}
+                                <a href="{{content.field_history_video_link.0}}"
+                                    class="play-btn popup-video pulse"><i class="fas fa-play"></i></a>
+                                {% endif %}
+                            </li>
+                            <li>
+                                <img src="{{ file_url(content.field_history_image_three['#items'].entity.uri.value) }}" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="history-content">
+                        <div class="section-title mb-20">
+                            <span class="sub-title">{{content.field_history_heading.0}}</span>
+                            <h2 class="title">{{content.field_history_title.0}}</h2>
+                        </div>
+                        <p>{{content.field_history_description.0}}</p>
+                        <div class="history-list">
+                            <ul class="list-wrap">
+                                {% for val in node.field_history_points %}
+                                    <li><i class="fas fa-check-circle"></i>{{val.value}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- history-area-end -->
+
+</main>
