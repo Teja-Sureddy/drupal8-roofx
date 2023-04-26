@@ -1,0 +1,129 @@
+<main>
+
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb-area breadcrumb-bg" data-background="{{content_paragraphs}}">
+        <div class="breadcrumb-shape" data-background="{{content_paragraphs}}"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-content">
+                        <h2 class="title">{{node.label}}</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/team">Team</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{node.label}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- team-details-area -->
+    <section class="team-details-area pt-120 pb-120">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="team-details-thumb">
+                        <img src="{{ file_url(content.field_profile_image_one['#items'].entity.uri.value) }}" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="team-details-info">
+                        <div class="info-content-top">
+                            <h3 class="title">{{content.field_name.0}}</h3>
+                            <span>{{content.field_designation.0}}</span>
+                        </div>
+                        <ul class="list-wrap team-info">
+                            <li><span><i class="fas fa-toolbox"></i>Experience:</span>
+                                <div>{{content.field_experience.0}}</div>
+                            </li>
+                            <li><span><i class="fas fa-envelope"></i>E-mail:</span>
+                                <div><a href="mailto:{{content.field_member_email.0}}">{{content.field_member_email.0}}</a></div>
+                            </li>
+                            <li><span><i class="fas fa-phone-alt"></i>Phone:</span>
+                                <div>
+                                {% for val in node.field_member_phone %}
+                                    <a href="tel:{{val.entity.field_phone_number.value }}">{{val.entity.field_phone_text.value }}</a>
+                                {% endfor %}
+                                </div>
+                            </li>
+                            <li><span><i class="fas fa-map-marker-alt"></i>Location:</span>
+                                <div>{{content.field_member_location.0}}</div>
+                            </li>
+                        </ul>
+                        <div class="team-details-social">
+                            <h6 class="title">Follow Me:</h6>
+                            <ul class="list-wrap">
+                                {% for val in node.field_member_socials %}
+                                    <li><a href="{{val.entity.field_description.value }}"><i class="fab {{val.entity.field_text.value }}"></i></a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="team-details-content">
+                        <h3 class="title">Personal Experience and Skills</h3>
+                        <p class="info-one">{{content.field_personal_experience.0}}</p>
+                        <div class="progress-wrap">
+                        {% for val in node.field_personal_skills %}
+                           <div class="progress-item">
+                                <h5 class="title">{{val.entity.field_tn_text.value}}</h5>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" style="width: {{val.entity.field_tn_number.value}}%;" aria-valuenow="88"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                    <span>{{val.entity.field_tn_number.value}}%</span>
+                                </div>
+                            </div> 
+                        {% endfor %}
+                        </div>
+                        <div class="guidelines-wrap">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="guidelines-img">
+                                        <img src="{{ file_url(content.field_profile_image_two['#items'].entity.uri.value) }}" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="guidelines-content">
+                                        <h4 class="title">Career Guidelines</h4>
+                                        <p>{{content.field_career_guidelines.0}}</p>
+                                        <ul class="list-wrap">
+                                        {% for val in node.field_guideline_points %}
+                                            <li>{{ val.value }}</li>
+                                        {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- team-details-area-end -->
+
+    <!-- brand-area -->
+    <div class="inner-brand-area inner-brand-two pb-120">
+        <div class="container">
+            <div class="row brand-active-three">
+            {% for val in brand_carousel_images %}
+                <div class="col-12">
+                    <div class="brand-item">
+                        <img src="{{val}}" alt="">
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- brand-area-end -->
+
+</main>

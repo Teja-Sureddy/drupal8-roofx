@@ -779,6 +779,9 @@
 	font-size: 18px;
 	width: 40%;
 }
+.team-details-info .list-wrap.team-info li div {
+	width: calc(100% - 40%);
+}
 .team-details-info .list-wrap.team-info li i {
 	margin-right: 15px;
 }
@@ -1984,6 +1987,9 @@
 .team-details-info .list-wrap.team-info li span {
 	width: 55%;
 }
+.team-details-info .list-wrap.team-info li div {
+	width: calc(100% - 55%);
+}
 .team-details-social .list-wrap {
 	gap: 15px;
 }
@@ -2245,6 +2251,9 @@
 }
 .team-details-info .list-wrap.team-info li span {
 	width: 40%;
+}
+.team-details-info .list-wrap.team-info li div {
+	width: calc(100% - 40%);
 }
 .progress-wrap {
 	padding: 30px 30px;

@@ -3457,6 +3457,9 @@ label {
 	font-family: var(--tg-heading-font-family);
 	width: 35%;
 }
+.team-details-info .list-wrap.team-info li div {
+	width: calc(100% - 35%);
+}
 .team-details-info .list-wrap.team-info li i {
 	color: var(--tg-primary-color);
 	margin-right: 30px;
