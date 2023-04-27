@@ -6,37 +6,66 @@ function custom_theme_preprocess_node(array &$variables, $hook) {
     $node = \Drupal::routeMatch()->getParameter('node');
 
     if($node->getType() === 'team_details'){
-        // get top banner
-        $banner_query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
-        $banner_conditions = $banner_query->condition('type','team')
-                            ->condition('status', 1, '=')
-                            ->sort('created','DESC')
-                            ->range(0, 1)->execute();
-        $banner_array = \Drupal\node\Entity\Node::loadMultiple($banner_conditions);
-        foreach($banner_array as $banner_val){
-            $variables['content_paragraphs'] = $banner_val->get('field_team_detail_top_banner')->entity->url();
-            break;
-        }
-
-        // get brand carousel
-        $carousel_query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
-        $carousel_conditions = $carousel_query->condition('type','brands_carousel')
-                            ->condition('status', 1, '=')
-                            ->sort('created','DESC')
-                            ->range(0, 1)->execute();
-        $carousel_array = \Drupal\node\Entity\Node::loadMultiple($carousel_conditions);
-        $image_urls = [];
-        foreach($carousel_array as $carousel_val){
-            $images = $carousel_val->get('field_brand_image')->getValue();
-            \Drupal::logger('my_module')->notice(serialize($images));
-            foreach ($images as $image) {
-                $file = \Drupal\file\Entity\File::load($image['target_id']);
-                $url = file_create_url($file->getFileUri());
-                $image_urls[] = $url;
-            }
-            break;
-        }
-        $variables['brand_carousel_images'] = $image_urls;
+        $variables['content_paragraphs'] = get_top_banner('team', 'field_team_detail_top_banner');
+        $variables['brand_carousel_images'] = get_brand_carousel();
     }
 
+    if($node->getType() === 'service_details'){
+        $variables['content_paragraphs'] = get_top_banner('services', 'field_service_details_top_banner');
+        $variables['brand_carousel_images'] = get_brand_carousel();
+
+        $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
+        $conditions = $query->condition('type', 'service_details')
+                            ->condition('status', 1, '=')
+                            ->condition('nid', $node->id(), '!=')
+                            ->sort('created','DESC')
+                            ->range(0, 6)->execute();
+        $array = \Drupal\node\Entity\Node::loadMultiple($conditions);
+        $services = array();
+        foreach($array as $val){
+            $title = $val->getTitle();
+            $node_id = $val->id();
+            $services[] = array(
+                'title' => $title,
+                'node_id' => $node_id,
+              );
+        }
+        $variables['services'] = $services;
+    }
+
+}
+
+// get top banner
+function get_top_banner($content_type, $field_name){        
+    $banner_query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
+    $banner_conditions = $banner_query->condition('type', $content_type)
+                        ->condition('status', 1, '=')
+                        ->sort('created','DESC')
+                        ->range(0, 1)->execute();
+    $banner_array = \Drupal\node\Entity\Node::loadMultiple($banner_conditions);
+    foreach($banner_array as $banner_val){
+        return $banner_val->get($field_name)->entity->url();
+        break;
+    }
+}
+
+// get brand carousel
+function get_brand_carousel(){ 
+    $carousel_query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
+    $carousel_conditions = $carousel_query->condition('type','brands_carousel')
+                        ->condition('status', 1, '=')
+                        ->sort('created','DESC')
+                        ->range(0, 1)->execute();
+    $carousel_array = \Drupal\node\Entity\Node::loadMultiple($carousel_conditions);
+    $image_urls = [];
+    foreach($carousel_array as $carousel_val){
+        $images = $carousel_val->get('field_brand_image')->getValue();
+        foreach ($images as $image) {
+            $file = \Drupal\file\Entity\File::load($image['target_id']);
+            $url = file_create_url($file->getFileUri());
+            $image_urls[] = $url;
+        }
+        break;
+    }
+    return $image_urls;
 }

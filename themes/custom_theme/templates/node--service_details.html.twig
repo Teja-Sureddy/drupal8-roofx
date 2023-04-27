@@ -1,0 +1,137 @@
+<main>
+
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb-area breadcrumb-bg" data-background="{{content_paragraphs}}">
+        <div class="breadcrumb-shape" data-background="{{content_paragraphs}}"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-content">
+                        <h2 class="title">{{node.label}}</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/services">Services</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{node.label}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- services-details-area -->
+    <section class="services-details-area pt-120 pb-120">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <div class="services-details-wrap">
+                        <div class="services-details-thumb">
+                            <img src="{{ file_url(content.field_sd_image['#items'].entity.uri.value) }}" alt="">
+                        </div>
+                        <div class="services-details-content">
+                            <h2 class="title">{{content.field_sd_title_one.0}}</h2>
+                            <p>{{content.field_sd_description.0}}</p>
+                            <div class="services-process-wrap">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6 col-md-8">
+                                        <div class="services-process-img">
+                                            <img src="{{ file_url(content.field_service_process_image_one['#items'].entity.uri.value) }}" alt="">
+                                            <img src="{{ file_url(content.field_service_process_image_two['#items'].entity.uri.value) }}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="services-process-content">
+                                            <h2 class="title">{{content.field_service_process_title.0}}</h2>
+                                            <ul class="list-wrap">
+                                            {% for val in node.field_service_process_points %}
+                                                <li>
+                                                    <div class="services-process-item">
+                                                        <div class="icon">
+                                                            <img src="{{ file_url(val.entity.field_icon.entity.fileuri) }}" alt="">
+                                                        </div>
+                                                        <div class="content">
+                                                            <h4 class="title">{{val.entity.field_text.value}}</h4>
+                                                            <p>{{val.entity.field_description.value}}</p>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="title-two">{{content.field_sd_title_two.0}}</h2>
+                            <p>{{content.field_sd_description_two.0}}</p>
+                            <div class="service-benefits-wrap">
+                                <div class="row">
+                                    <div class="col-lg-7 order-0 order-lg-2">
+                                        <div class="benefits-img">
+                                            <img src="{{ file_url(content.field_service_benefits_image_one['#items'].entity.uri.value) }}" alt="">
+                                            <img src="{{ file_url(content.field_service_benefits_image_two['#items'].entity.uri.value) }}" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5">
+                                        <div class="benefits-content">
+                                            <h2 class="title">{{content.field_service_benefits_title.0}}</h2>
+                                            <p>{{content.field_sd_benefits_description.0}}</p>
+                                            <ul class="list-wrap">
+                                            {% for val in node.field_service_benefits_points %}
+                                                <li><i class="fas fa-check-circle"></i>{{val.value}}</li>
+                                            {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-6">
+                    <aside class="services-sidebar">
+                        <div class="services-widget">
+                            <h4 class="widget-title">{{content.field_all_services_title.0}}</h4>
+                            <div class="our-services-list">
+                                <ul class="list-wrap">
+                                {% for val in services %}
+                                    <li><a href="/node/{{val['node_id']}}">{{val['title']}}<i class="fas fa-arrow-right"></i></a></li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="services-widget">
+                            <h4 class="widget-title">{{content.field_brochures_title.0}}</h4>
+                            <div class="download-wrap">
+                                <a href="{{ file_url(content.field_brochure_one['#items'].entity.uri.value) }}" download target="_blank"><i
+                                        class="fas fa-cloud-download-alt"></i>{{ node.field_brochure_one.entity.uri.value|split('/')|last|split('.')|first }}</a>
+                                <a href="{{ file_url(content.field_brochure_two['#items'].entity.uri.value) }}" download target="_blank"><i
+                                        class="fas fa-cloud-download-alt"></i>{{ node.field_brochure_two.entity.uri.value|split('/')|last|split('.')|first }}</a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- services-details-area-end -->
+
+    <!-- brand-area -->
+    <div class="inner-brand-area inner-brand-two pb-120">
+        <div class="container">
+            <div class="row brand-active-three">
+                {% for val in brand_carousel_images %}
+                <div class="col-12">
+                    <div class="brand-item">
+                        <img src="{{val}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- brand-area-end -->
+
+</main>
