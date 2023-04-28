@@ -5,34 +5,40 @@
 function custom_theme_preprocess_node(array &$variables, $hook) {
     $node = \Drupal::routeMatch()->getParameter('node');
 
-    if($node->getType() === 'team_details'){
-        $variables['content_paragraphs'] = get_top_banner('team', 'field_team_detail_top_banner');
-        $variables['brand_carousel_images'] = get_brand_carousel();
-    }
-
-    if($node->getType() === 'service_details'){
-        $variables['content_paragraphs'] = get_top_banner('services', 'field_service_details_top_banner');
-        $variables['brand_carousel_images'] = get_brand_carousel();
-
-        $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
-        $conditions = $query->condition('type', 'service_details')
-                            ->condition('status', 1, '=')
-                            ->condition('nid', $node->id(), '!=')
-                            ->sort('created','DESC')
-                            ->range(0, 6)->execute();
-        $array = \Drupal\node\Entity\Node::loadMultiple($conditions);
-        $services = array();
-        foreach($array as $val){
-            $title = $val->getTitle();
-            $node_id = $val->id();
-            $services[] = array(
-                'title' => $title,
-                'node_id' => $node_id,
-              );
+    if(isset($node)){
+        if($node->getType() === 'team_details'){
+            $variables['content_paragraphs'] = get_top_banner('team', 'field_team_detail_top_banner');
+            $variables['brand_carousel_images'] = get_brand_carousel();
         }
-        $variables['services'] = $services;
-    }
 
+        if($node->getType() === 'service_details'){
+            $variables['content_paragraphs'] = get_top_banner('services', 'field_service_details_top_banner');
+            $variables['brand_carousel_images'] = get_brand_carousel();
+
+            $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
+            $conditions = $query->condition('type', 'service_details')
+                                ->condition('status', 1, '=')
+                                ->condition('nid', $node->id(), '!=')
+                                ->sort('created','DESC')
+                                ->range(0, 6)->execute();
+            $array = \Drupal\node\Entity\Node::loadMultiple($conditions);
+            $services = array();
+            foreach($array as $val){
+                $title = $val->getTitle();
+                $node_id = $val->id();
+                $services[] = array(
+                    'title' => $title,
+                    'node_id' => $node_id,
+                );
+            }
+            $variables['services'] = $services;
+        }
+
+        if($node->getType() === 'project_details'){
+            $variables['content_paragraphs'] = get_top_banner('projects', 'field_project_details_top_banner');
+            $variables['brand_carousel_images'] = get_brand_carousel();
+        }
+    }
 }
 
 // get top banner

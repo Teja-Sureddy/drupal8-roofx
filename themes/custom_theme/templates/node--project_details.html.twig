@@ -1,0 +1,124 @@
+<main>
+
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb-area breadcrumb-bg" data-background="{{content_paragraphs}}">
+        <div class="breadcrumb-shape" data-background="{{content_paragraphs}}"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-content">
+                        <h2 class="title">{{node.label}}</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item"><a href="/projects">Projects</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{node.label}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- project-details-area -->
+    <section class="project-details-area pt-120 pb-120">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="project-details-wrap">
+                        <div class="project-details-thumb">
+                            <img src="{{ file_url(content.field_pd_image['#items'].entity.uri.value) }}" alt="">
+                        </div>
+                        <div class="project-details-content">
+                            <h2 class="title">{{content.field_pd_title.0}}</h2>
+                            <p class="info-one">{{content.field_pd_description.0}}</p>
+                            <div class="project-challenge-wrap">
+                                <div class="row">
+                                    <div class="col-xl-5">
+                                        <div class="challenge-content">
+                                            <h2 class="title">{{content.field_pd_challenge_title.0}}</h2>
+                                            <p class="info-three">{{content.field_pd_challenge_description.0}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-7">
+                                        <div class="challenge-img">
+                                            <img src="{{ file_url(content.field_pd_challenge_image_one['#items'].entity.uri.value) }}" alt="">
+                                            <img src="{{ file_url(content.field_pd_challenge_image_two['#items'].entity.uri.value) }}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2 class="title-two">{{content.field_pd_requirement_title.0}}</h2>
+                            <p class="info-five">{{content.field_pd_requirement_description.0}}</p>
+                            <ul class="list-wrap">
+                                {% for val in node.field_pd_requirement_points %}
+                                <li><i class="fas fa-check-circle"></i>{{val.value}}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <aside class="project-sidebar">
+                        <div class="project-widget">
+                            <h4 class="widget-title">{{content.field_pd_details_title.0}}</h4>
+                            <div class="project-info-list">
+                                <ul class="list-wrap">
+                                    <li><span>Start Date :</span>{{node.field_pd_details_start_date.value|date('d M, Y')}}</li>
+                                    <li><span>End Date :</span>{{node.field_pd_details_end_date.value|date('d M, Y')}}</li>
+                                    <li><span>Clients :</span>{{content.field_pd_details_clients.0}}</li>
+                                    <li><span>Tags:</span>
+                                        <div>
+                                        {% for val in node.field_pd_details_tags %}
+                                            <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': val.entity.tid.value}) }}">{{ val.entity.name.value }}</a>
+                                            {% if not loop.last %},&nbsp;{% endif %}
+                                        {% endfor %}
+                                        </div>
+                                    </li>
+                                    <li><span>Website :</span><a href="{{content.field_pd_details_website.0}}">{{content.field_pd_details_website.0}}</a></li>
+                                    <li><span>Category :</span>
+                                        <a href="{{ path('entity.taxonomy_term.canonical', {'taxonomy_term': node.field_pd_details_category.entity.tid.value}) }}">{{ content.field_pd_details_category['#items'].entity.name.value }}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project-widget">
+                            <h4 class="widget-title">{{content.field_pd_help_title.0}}</h4>
+                            <div class="project-contact">
+                                <ul class="list-wrap">
+                                    <li><i class="fas fa-phone-alt"></i>
+                                    {% for val in node.field_pd_help_phone %}
+                                        <a href="tel:{{val.entity.field_phone_number.value }}">{{val.entity.field_phone_text.value }}</a>
+                                    {% endfor %}
+                                    </li>
+                                    <li><i class="fas fa-envelope"></i><a href="mailto:{{content.field_pd_help_email.0}}">{{content.field_pd_help_email.0}}</a></li>
+                                    <li><i class="fas fa-map-marker-alt"></i>{{content.field_pd_help_location.0}}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- project-details-area-end -->
+
+    <!-- brand-area -->
+    <div class="inner-brand-area inner-brand-two pb-120">
+        <div class="container">
+            <div class="row brand-active-three">
+                {% for val in brand_carousel_images %}
+                <div class="col-12">
+                    <div class="brand-item">
+                        <img src="{{val}}" alt="">
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- brand-area-end -->
+
+</main>
