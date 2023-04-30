@@ -1,0 +1,3 @@
+services:
+  projects.data:
+    class: Drupal\projects\Service\projects_service

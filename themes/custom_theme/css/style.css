@@ -2652,6 +2652,8 @@ label {
 }
 .project-thumb-two img {
 	width: 100%;
+    min-height: 400px;
+    object-fit: cover;
 }
 .project-content-two {
 	position: absolute;

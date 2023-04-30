@@ -625,6 +625,10 @@
 	flex: 0 0 60px;
 	margin-right: 15px;
 }
+.inner-project-area .project-thumb-two img {
+	min-height: 300px;
+	object-fit: cover;
+}
 .project-area-three .project-thumb-two img {
 	min-height: 300px;
 	object-fit: cover;

@@ -1,0 +1,14 @@
+<?php
+
+    function services_theme($existing, $type, $theme, $path){
+        return array(
+            'services' => array(
+                'variables' => array(
+                    'services_data' => NULL,
+                    'service_details' => NULL
+                )
+            ),
+        );
+    }
+
+?>

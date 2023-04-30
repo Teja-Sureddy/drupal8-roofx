@@ -1,0 +1,7 @@
+projects.projects:
+  path: '/projects'
+  defaults:
+    _controller: '\Drupal\projects\Controller\projects_controller::getData'
+    _title: 'projects'
+  requirements:
+    _permission: 'access content'

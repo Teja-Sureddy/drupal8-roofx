@@ -1,0 +1,7 @@
+services.services:
+  path: '/services'
+  defaults:
+    _controller: '\Drupal\services\Controller\services_controller::getData'
+    _title: 'Services'
+  requirements:
+    _permission: 'access content'

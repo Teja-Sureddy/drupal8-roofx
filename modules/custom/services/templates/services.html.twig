@@ -1,0 +1,61 @@
+<main>
+
+    <!-- breadcrumb-area -->
+    <section class="breadcrumb-area breadcrumb-bg" data-background="{{services_data.banner}}">
+        <div class="breadcrumb-shape" data-background="{{services_data.banner}}"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb-content">
+                        <h2 class="title">{{services_data.title}}</h2>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">{{services_data.title}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb-area-end -->
+
+    <!-- services-area -->
+    <section class="inner-services-area pt-115 pb-90">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="section-title text-center mb-50">
+                        <span class="sub-title">{{services_data.heading}}</span>
+                        <h2 class="title">{{services_data.services_title}}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+            {% for index, val in service_details %}
+                <div class="col-lg-4 col-md-6 col-sm-10">
+                    <div class="services-item wow fadeInUp" data-wow-delay=".2s"
+                        data-background="{{val.image}}">
+                        <div class="services-icon">
+                            <img src="{{val.icon}}" alt="">
+                        </div>
+                        <div class="services-content">
+                            <h2 class="title"><a href="services-details.html">{{val.title}}</a></h2>
+                            <h2 class="number">{{ ('0' ~ (index + 1))|slice(-2) }}</h2>
+                        </div>
+                        <div class="services-overlay-content">
+                            <h2 class="title"><a href="services-details.html">{{val.title}}</a></h2>
+                            <p>{{val.description|slice(0, 120) ~ (val.description|length > 120 ? '...' : '')}}</p>
+                            <a href="{{val.node_id}}" class="read-more">Read More <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- services-area-end -->
+
+</main>
