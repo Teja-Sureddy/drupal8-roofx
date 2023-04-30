@@ -1,0 +1,7 @@
+team.team:
+  path: '/team'
+  defaults:
+    _controller: '\Drupal\team\Controller\team_controller::getData'
+    _title: 'Team'
+  requirements:
+    _permission: 'access content'

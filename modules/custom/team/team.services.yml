@@ -1,0 +1,3 @@
+services:
+  team.data:
+    class: Drupal\team\Service\team_service
