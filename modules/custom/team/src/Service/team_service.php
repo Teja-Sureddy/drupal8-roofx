@@ -30,11 +30,15 @@ class team_service{
         }
     }    
     
-    public function getTeamDetailsData(){
-        $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
-        $conditions = $query->condition('type', 'team_details')
-                            ->condition('status', 1, '=')
-                            ->sort('created','DESC')->execute();
+    public function getTeamDetailsData($home = false){
+        $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+                ->condition('type', 'team_details')
+                ->condition('status', 1, '=')
+                ->sort('created', 'DESC');
+        if ($home) {
+            $query->range(0, 4);
+        }
+        $conditions = $query->execute();
         $array = \Drupal\node\Entity\Node::loadMultiple($conditions);
 
         $team_details_data = array();

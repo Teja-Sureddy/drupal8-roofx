@@ -1,0 +1,3 @@
+services:
+  home.data:
+    class: Drupal\home\Service\home_service

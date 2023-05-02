@@ -1,0 +1,18 @@
+<?php
+
+    function home_theme($existing, $type, $theme, $path){
+        return array(
+            'home' => array(
+                'variables' => array(
+                    'projects_data' => NULL,
+                    'project_details' => NULL,
+                    'services_data' => NULL,
+                    'service_details' => NULL,
+                    'team_data' => NULL,
+                    'team_details' => NULL,
+                )
+            ),
+        );
+    }
+
+?>

@@ -30,11 +30,15 @@ class services_service{
         }
     }    
     
-    public function getServiceDetailsData(){
-        $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
-        $conditions = $query->condition('type', 'service_details')
-                            ->condition('status', 1, '=')
-                            ->sort('created','DESC')->execute();
+    public function getServiceDetailsData($home = false){
+        $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+                ->condition('type', 'service_details')
+                ->condition('status', 1, '=')
+                ->sort('created', 'DESC');
+        if ($home) {
+            $query->range(0, 4);
+        }
+        $conditions = $query->execute();
         $array = \Drupal\node\Entity\Node::loadMultiple($conditions);
 
         $service_details_data = array();

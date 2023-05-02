@@ -1,0 +1,52 @@
+{% if rows %}
+{% for key,row in rows %}
+    <section class="about-area inner-about-area pt-120 pb-120">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-7 col-lg-6 order-0 order-lg-2">
+                    <div class="about-img-wrap">
+                        <img src="{{ view.style_plugin.getField(key, 'field_about_image_one') }}" alt="" class="wow fadeInRight"
+                            data-wow-delay=".4s">
+                        <img src="{{ view.style_plugin.getField(key, 'field_about_image_two') }}" alt="" class="wow fadeInRight"
+                            data-wow-delay=".2s">
+                        <div class="about-experiences-wrap">
+                          {% set entity = row.content['#row']._entity %}
+                          {% if entity.field_about_image_points.value %}
+                            {% for item in entity.field_about_image_points %}
+                              <div class="experiences-item">
+                                  <div class="icon">
+                                      <img src="{{ file_url(item.entity.field_icon.entity.uri.value) }}" alt="">
+                                  </div>
+                                  <div class="content">
+                                      <h6 class="title">{{ item.entity.field_text.value }}</h6>
+                                  </div>
+                              </div>
+                            {% endfor %}
+                          {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-lg-6">
+                    <div class="about-content">
+                        <div class="section-title mb-25">
+                            <span class="sub-title">{{ view.style_plugin.getField(key, 'field_about_heading') }}</span>
+                            <h2 class="title"> {{ view.style_plugin.getField(key, 'field_about_title') }}</h2>
+                        </div>
+                        <p>{{ view.style_plugin.getField(key, 'field_about_description') }}</p>
+                        <div class="about-list">
+                            <ul class="list-wrap">
+                                  {% set entity = row.content['#row']._entity %}
+                                  {% if entity.field_about_points.value %}
+                                    {% for item in entity.field_about_points %}
+                                      <li><i class="fas fa-check"></i>{{ item.value }}</li>
+                                    {% endfor %}
+                                  {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endfor %}
+{% endif %}

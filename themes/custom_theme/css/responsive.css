@@ -882,6 +882,7 @@
 	transform: translateY(0) rotate(0);
 	display: block;
 	margin-bottom: 30px;
+	text-align: center;
 }
 .project-item {
 	padding: 25px 35px;

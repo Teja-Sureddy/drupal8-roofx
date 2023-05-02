@@ -1,0 +1,7 @@
+home.home:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\home\Controller\home_controller::getData'
+    _title: 'home'
+  requirements:
+    _permission: 'access content'

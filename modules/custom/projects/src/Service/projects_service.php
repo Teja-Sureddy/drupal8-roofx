@@ -30,11 +30,15 @@ class projects_service{
         }
     }    
     
-    public function getprojectDetailsData(){
-        $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
-        $conditions = $query->condition('type', 'project_details')
-                            ->condition('status', 1, '=')
-                            ->sort('created','DESC')->execute();
+    public function getprojectDetailsData($home = false){
+        $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery()
+                ->condition('type', 'project_details')
+                ->condition('status', 1, '=')
+                ->sort('created', 'DESC');
+        if ($home) {
+            $query->range(0, 4);
+        }
+        $conditions = $query->execute();
         $array = \Drupal\node\Entity\Node::loadMultiple($conditions);
 
         $project_details_data = array();
@@ -42,11 +46,15 @@ class projects_service{
             $title = $val->getTitle();
             $node_id = 'node/' . $val->id();
             $image = $val->get('field_pd_image')->entity->url();
+            $description = $val->get('field_pd_description')->value;
+            $project_title = $val->get('field_pd_title')->value;
 
             $project_details_data[] = array(
                 'title' => $title,
                 'node_id' => $node_id,
                 'image' => $image,
+                'description' => $description,
+                'project_title' => $project_title,
             );
 
         }

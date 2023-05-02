@@ -20,50 +20,9 @@
         </div>
     </section>
     <!-- breadcrumb-area-end -->
-
+    
     <!-- about-area -->
-    <section class="about-area inner-about-area pt-120 pb-120">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-7 col-lg-6 order-0 order-lg-2">
-                    <div class="about-img-wrap">
-                        <img src="{{ file_url(content.field_about_image_one['#items'].entity.uri.value) }}" alt="" class="wow fadeInRight"
-                            data-wow-delay=".4s">
-                        <img src="{{ file_url(content.field_about_image_two['#items'].entity.uri.value) }}" alt="" class="wow fadeInRight"
-                            data-wow-delay=".2s">
-                        <div class="about-experiences-wrap">
-                            {% for val in node.field_about_image_points %}
-                                <div class="experiences-item">
-                                    <div class="icon">
-                                        <img src="{{ file_url(val.entity.field_icon.entity.fileuri) }}" alt="">
-                                    </div>
-                                    <div class="content">
-                                        <h6 class="title">{{val.entity.field_text.value}}</h6>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-5 col-lg-6">
-                    <div class="about-content">
-                        <div class="section-title mb-25">
-                            <span class="sub-title">{{content.field_about_heading.0}}</span>
-                            <h2 class="title">{{content.field_about_title.0}}</h2>
-                        </div>
-                        <p>{{content.field_about_description.0}}</p>
-                        <div class="about-list">
-                            <ul class="list-wrap">
-                                {% for val in node.field_about_points %}
-                                    <li><i class="fas fa-check"></i>{{val.value}}</li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    {{ drupal_block('views_block:about_us-block_1') }}
     <!-- about-area-end -->
 
 
