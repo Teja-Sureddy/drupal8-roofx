@@ -2,42 +2,11 @@
 
     <!-- banner-area -->
     <section class="banner-area">
-        <div class="banner-shape" data-background="assets/img/banner/banner_shape.jpg"></div>
-        <div class="banner-bg" data-background="assets/img/banner/banner_bg.jpg">
+        <div class="banner-shape" data-background="{{home_data.left_banner}}"></div>
+        <div class="banner-bg" data-background="{{home_data.banner}}">
             <div class="banner-content">
-                <h2 class="title wow fadeInDown" data-wow-delay=".2s">Best Roofing Services and Consulting</h2>
-                <p class="wow fadeInUp" data-wow-delay=".2s">There are many variations of passages of Lorem as Ipsumoff
-                    available, but the majority have suffered alt.</p>
-                <a href="project.html" class="btn wow fadeInUp" data-wow-delay=".4s">Discover More</a>
-            </div>
-            <div class="banner-tooltip-wrap">
-                <div class="tooltip-item top">
-                    <div class="tooltip-btn pulse">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="tooltip-content">
-                        <h2 class="title">Combustion Roof Vent</h2>
-                        <p>Suffered alteration in some a goody form, by injected humor, or into the randomized word.</p>
-                    </div>
-                </div>
-                <div class="tooltip-item">
-                    <div class="tooltip-btn pulse">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="tooltip-content">
-                        <h2 class="title">Combustion Roof Vent</h2>
-                        <p>Suffered alteration in some a goody form, by injected humor, or into the randomized word.</p>
-                    </div>
-                </div>
-                <div class="tooltip-item">
-                    <div class="tooltip-btn pulse">
-                        <i class="fas fa-plus"></i>
-                    </div>
-                    <div class="tooltip-content">
-                        <h2 class="title">Combustion Roof Vent</h2>
-                        <p>Suffered alteration in some a goody form, by injected humor, or into the randomized word.</p>
-                    </div>
-                </div>
+                <h2 class="title wow fadeInDown" data-wow-delay=".2s">{{home_data.title}}</h2>
+                <p class="wow fadeInUp" data-wow-delay=".2s">{{home_data.description}}</p>
             </div>
         </div>
 
@@ -46,41 +15,13 @@
             <div class="container">
                 <div class="brand-inner">
                     <div class="row brand-active">
+                    {% for val in brand_carousel %}
                         <div class="col-12">
                             <div class="brand-item">
-                                <img src="assets/img/brand/brand_img01.png" alt="">
+                                <img src="{{val}}" alt="">
                             </div>
                         </div>
-                        <div class="col-12">
-                            <div class="brand-item">
-                                <img src="assets/img/brand/brand_img02.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="brand-item">
-                                <img src="assets/img/brand/brand_img03.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="brand-item">
-                                <img src="assets/img/brand/brand_img04.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="brand-item">
-                                <img src="assets/img/brand/brand_img05.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="brand-item">
-                                <img src="assets/img/brand/brand_img06.png" alt="">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="brand-item">
-                                <img src="assets/img/brand/brand_img03.png" alt="">
-                            </div>
-                        </div>
+                    {% endfor %}
                     </div>
                 </div>
             </div>
@@ -94,54 +35,21 @@
     <section class="features-area pt-120 pb-90">
         <div class="container">
             <div class="row justify-content-center">
+            {% for val in home_data.cards %}
                 <div class="col-lg-4 col-md-6">
                     <div class="features-item wow fadeInUp" data-wow-delay=".2s">
                         <div class="features-item-inner">
                             <div class="features-content">
-                                <h4 class="title">Quality Materials</h4>
-                                <p>There are many variatons of passag of Lorem Ipsum available, but the a jority have
-                                    suffered.</p>
-                                <a href="services-details.html" class="link-btn"><i class="fas fa-arrow-right"></i> Read
-                                    More</a>
+                                <h4 class="title">{{val.title}}</h4>
+                                <p>{{val.description}}</p>
                             </div>
                             <div class="features-icon">
-                                <img src="assets/img/icon/features_icon01.svg" alt="">
+                                <img src="{{val.icon}}" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="features-item wow fadeInUp" data-wow-delay=".4s">
-                        <div class="features-item-inner">
-                            <div class="features-content">
-                                <h4 class="title">Expert Engineer</h4>
-                                <p>There are many variatons of passag of Lorem Ipsum available, but the a jority have
-                                    suffered.</p>
-                                <a href="services-details.html" class="link-btn"><i class="fas fa-arrow-right"></i> Read
-                                    More</a>
-                            </div>
-                            <div class="features-icon">
-                                <img src="assets/img/icon/features_icon02.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="features-item wow fadeInUp" data-wow-delay=".6s">
-                        <div class="features-item-inner">
-                            <div class="features-content">
-                                <h4 class="title">Quality Maintenance</h4>
-                                <p>There are many variatons of passag of Lorem Ipsum available, but the a jority have
-                                    suffered.</p>
-                                <a href="services-details.html" class="link-btn"><i class="fas fa-arrow-right"></i> Read
-                                    More</a>
-                            </div>
-                            <div class="features-icon">
-                                <img src="assets/img/icon/features_icon03.svg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            {% endfor %}
             </div>
         </div>
     </section>
@@ -267,58 +175,7 @@
     <!-- team-area-end -->
 
     <!-- counter-area -->
-    <div class="counter-area pb-120">
-        <div class="container">
-            <div class="counter-inner wow fadeInUp" data-wow-delay=".2s">
-                <div class="row">
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="counter-item">
-                            <div class="counter-icon">
-                                <img src="assets/img/icon/counter_icon01.svg" alt="">
-                            </div>
-                            <div class="counter-content">
-                                <span class="count odometer" data-count="1500"></span>
-                                <p>Project Complete</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="counter-item">
-                            <div class="counter-icon">
-                                <img src="assets/img/icon/counter_icon02.svg" alt="">
-                            </div>
-                            <div class="counter-content">
-                                <span class="count odometer" data-count="8562"></span>
-                                <p>Satisfied Clients</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="counter-item">
-                            <div class="counter-icon">
-                                <img src="assets/img/icon/counter_icon03.svg" alt="">
-                            </div>
-                            <div class="counter-content">
-                                <span class="count odometer" data-count="450"></span>
-                                <p>Experienced Staff</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="counter-item">
-                            <div class="counter-icon">
-                                <img src="assets/img/icon/counter_icon04.svg" alt="">
-                            </div>
-                            <div class="counter-content">
-                                <span class="count odometer" data-count="38"></span>
-                                <p>Awards Win</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{ drupal_block('views_block:achievement-block_1') }}
     <!-- counter-area-end -->
 
     <!-- testimonial-area -->

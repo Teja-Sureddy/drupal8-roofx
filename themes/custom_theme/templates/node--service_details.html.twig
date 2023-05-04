@@ -107,8 +107,10 @@
                             <div class="download-wrap">
                                 <a href="{{ file_url(content.field_brochure_one['#items'].entity.uri.value) }}" download target="_blank"><i
                                         class="fas fa-cloud-download-alt"></i>{{ node.field_brochure_one.entity.uri.value|split('/')|last|split('.')|first }}</a>
+                                {% if node.field_brochure_two.entity.uri.value %}
                                 <a href="{{ file_url(content.field_brochure_two['#items'].entity.uri.value) }}" download target="_blank"><i
                                         class="fas fa-cloud-download-alt"></i>{{ node.field_brochure_two.entity.uri.value|split('/')|last|split('.')|first }}</a>
+                                {% endif %}
                             </div>
                         </div>
                     </aside>

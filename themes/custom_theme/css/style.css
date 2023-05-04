@@ -292,7 +292,7 @@ label {
 	color: var(--tg-white);
 	cursor: pointer;
 	display: inline-block;
-	font-size: 18px;
+	font-size: 14px;
 	font-weight: 400;
 	letter-spacing: 0;
 	line-height: 1;
@@ -549,6 +549,10 @@ label {
 }
 
 /* header-two */
+.menu-area {
+	z-index: 99;
+	position: relative;
+}
 .menu-area-two .navbar-wrap ul {
 	margin: 0px 0px 0 auto;
 }
@@ -953,6 +957,7 @@ label {
 .banner-area {
 	position: relative;
 	padding: 100px 0 0 240px;
+	margin-top: -100px;
 }
 .banner-shape {
 	position: absolute;
@@ -962,6 +967,7 @@ label {
 	height: 100%;
 	background-size: cover;
 	background-position: center;
+	z-index: 1;
 }
 .banner-bg {
 	padding: 100px 115px;
@@ -2295,6 +2301,7 @@ label {
 }
 .services-details-thumb {
 	margin-bottom: 55px;
+	text-align: center;
 }
 .services-details-thumb img {
 	border-radius: 10px;
@@ -2882,6 +2889,7 @@ label {
 }
 .project-details-thumb {
 	margin-bottom: 55px;
+	text-align: center;
 }
 .project-details-thumb img {
 	border-radius: 10px;
@@ -3421,6 +3429,9 @@ label {
 
 
 /* team-details */
+.team-details-thumb{
+	text-align: center;
+}
 .team-details-thumb img {
 	border-radius: 10px;
 }

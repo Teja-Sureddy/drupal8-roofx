@@ -1,0 +1,28 @@
+{% if rows %}
+{% for key,row in rows %}
+<div class="counter-area pb-120">
+    <div class="container">
+        <div class="counter-inner wow fadeInUp" data-wow-delay=".2s">
+            <div class="row">
+                {% set entity = row.content['#row']._entity %}
+                {% if entity.field_service_achievements.value %}
+                {% for item in entity.field_service_achievements %}
+                <div class="col-lg-3 col-sm-6">
+                    <div class="counter-item">
+                        <div class="counter-icon">
+                            <img src="{{ file_url(item.entity.field_icon.entity.uri.value) }}" alt="">
+                        </div>
+                        <div class="counter-content">
+                            <span class="count odometer" data-count="{{ item.entity.field_text.value }}"></span>
+                            <p>{{ item.entity.field_description.value }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endif %}

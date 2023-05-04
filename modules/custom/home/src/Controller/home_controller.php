@@ -5,6 +5,10 @@ namespace Drupal\home\Controller;
 class home_controller{
     public function getData(){
         try{
+            $home_service = \Drupal::service('home.data');
+            $home_data = $home_service->getHomeData();
+            $brand_carousel = $home_service->getBrandCarousel();
+
             $team_service = \Drupal::service('team.data');
             $team_data = $team_service->getTeamData();
             $team_details = $team_service->getTeamDetailsData(true);
@@ -23,6 +27,8 @@ class home_controller{
         return[
             '#theme' => 'home',
             '#module_path' => '{{$base_path}}/modules/custom/home',
+            '#home_data' => $home_data,
+            '#brand_carousel' => $brand_carousel,
             '#projects_data' => $projects_data,
             '#project_details' => $project_details,
             '#services_data' => $services_data,

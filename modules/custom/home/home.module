@@ -4,6 +4,8 @@
         return array(
             'home' => array(
                 'variables' => array(
+                    'home_data' => NULL,
+                    'brand_carousel' => NULL,
                     'projects_data' => NULL,
                     'project_details' => NULL,
                     'services_data' => NULL,

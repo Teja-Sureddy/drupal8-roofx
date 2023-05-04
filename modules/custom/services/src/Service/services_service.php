@@ -36,7 +36,7 @@ class services_service{
                 ->condition('status', 1, '=')
                 ->sort('created', 'DESC');
         if ($home) {
-            $query->range(0, 4);
+            $query->range(0, 3);
         }
         $conditions = $query->execute();
         $array = \Drupal\node\Entity\Node::loadMultiple($conditions);
