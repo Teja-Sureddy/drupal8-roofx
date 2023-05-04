@@ -1,6 +1,39 @@
 <?php
 
+function custom_theme_preprocess_page(array &$variables){
+    $query = \Drupal::entityTypeManager()->getStorage('node')->getQuery();
+    $conditions = $query->condition('type', 'contact_us')
+                        ->condition('status', 1, '=')
+                        ->sort('created','DESC')
+                        ->range(0, 1)->execute();
+    $array = \Drupal\node\Entity\Node::loadMultiple($conditions);
+    
+    foreach($array as $val){
+        $socials = array();
+        foreach($val->get('field_contact_socials')->referencedEntities() as $social){
+            $class = $social->field_text->value;
+            $link = $social->field_description->value;
+            $socials[] = array(
+                'class' => $class,
+                'link' => $link,
+            );
+        }
 
+        $phone; $phone_text;
+        foreach($val->get('field_phone')->referencedEntities() as $social){
+            $phone = $social->field_phone_number->value;
+            $phone_text = $social->field_phone_text->value;
+            break;
+        }
+
+        $footer = array(
+            'phone' => $phone,
+            'phone_text' => $phone_text,
+            'socials' => $socials
+        );
+        $variables['footer'] = $footer;
+    }
+}
 
 function custom_theme_preprocess_node(array &$variables, $hook) {
     $node = \Drupal::routeMatch()->getParameter('node');

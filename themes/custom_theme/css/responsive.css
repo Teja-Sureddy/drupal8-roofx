@@ -119,7 +119,7 @@
 	margin-right: 20px;
 }
 .footer-contact .content a {
-	font-size: 24px;
+	font-size: 20px;
 }
 .footer-instagram .list-wrap li a img {
 	width: 100px;
@@ -488,7 +488,7 @@
 	margin-right: 15px;
 }
 .footer-contact .content a {
-	font-size: 20px;
+	font-size: 18px;
 }
 .footer-social .title {
 	font-size: 22px;
@@ -1311,7 +1311,7 @@
 	margin-right: 10px;
 }
 .features-area {
-	padding: 100px 0 70px;
+	padding: 100px 0 0;
 }
 .services-item {
 	padding: 30px 20px 30px;
@@ -1372,7 +1372,7 @@
 	padding: 95px 0 70px;
 }
 .footer-top {
-	padding: 95px 0 100px;
+	padding: 0 0 48px;
 }
 .footer-top .row [class*="col-"]:nth-child(2) .footer-widget {
 	margin-left: 0;
@@ -1814,7 +1814,7 @@
 	padding: 100px 0;
 }
 .inner-services-area {
-	padding: 95px 0 70px;
+	padding: 95px 0 0;
 }
 .inner-project-area {
 	padding: 95px 0 70px;

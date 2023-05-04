@@ -78,6 +78,12 @@
             {% endif %}
         </header>
 
+        {% if page.message %}
+        <div class="toast-messages">
+            {{ page.message }}
+        </div>
+        {% endif %}
+
         {# <!-- MAIN CONTENT --> #}
         <div id="main-wrapper" class="layout-main-wrapper clearfix">
             {% block content %}
@@ -86,10 +92,63 @@
         </div>
         
         {# <!-- FOOTER --> #}
-        <div class="site-footer__bottom">
-            {% if page.footer %}
-            <div>{{page.footer}}</div>
-            {% endif %}
-        </div>
+        <footer>
+            <div class="footer-area footer-bg" data-background="">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="footer-logo-area">
+                            <div class="row align-items-center">
+                                <div class="col-xl-3 col-lg-3 col-md-12">
+                                    <div class="logo">
+                                        {{ drupal_view('header_logo_white', 'block_1') }}
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6">
+                                    <div class="footer-contact">
+                                        <div class="icon">
+                                            <i class="fas fa-phone-alt"></i>
+                                        </div>
+                                        <div class="content">
+                                            <span>Phone No</span>
+                                            <a href="tel:{{footer.phone}}">{{footer.phone_text}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-5 col-lg-5 col-md-6">
+                                    <div class="footer-social">
+                                        <h2 class="title">Follow Us:</h2>
+                                        <ul class="list-wrap">
+                                        {% for val in footer.socials %}
+                                            <li><a href="{{val.link}}"><i class="fab {{val.class}}"></i></a></li>
+                                        {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="copyright-text">
+                                    <p>© Copyright 2023. All Right Reserved</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="footer-bootom-menu">
+                                    <ul class="list-wrap">
+                                        <li><a href="/">Privacy Policy</a></li>
+                                        <li><a href="/">Terms & Conditions</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 </div>
