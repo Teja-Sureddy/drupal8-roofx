@@ -59,11 +59,9 @@
                                     </div>
                                     <div class="social-links">
                                         <ul class="clearfix list-wrap">
-                                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                                        {% for val in footer.socials %}
+                                            <li><a href="{{val.link}}"><i class="fab {{val.class}}"></i></a></li>
+                                        {% endfor %}
                                         </ul>
                                     </div>
                                 </nav>
