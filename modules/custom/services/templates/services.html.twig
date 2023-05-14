@@ -41,11 +41,11 @@
                             <img src="{{val.icon}}" alt="">
                         </div>
                         <div class="services-content">
-                            <h2 class="title"><a href="services-details.html">{{val.title}}</a></h2>
+                            <h2 class="title"><a href="{{val.node_id}}">{{val.title}}</a></h2>
                             <h2 class="number">{{ ('0' ~ (index + 1))|slice(-2) }}</h2>
                         </div>
                         <div class="services-overlay-content">
-                            <h2 class="title"><a href="services-details.html">{{val.title}}</a></h2>
+                            <h2 class="title"><a href="{{val.node_id}}">{{val.title}}</a></h2>
                             <p>{{val.description|slice(0, 120) ~ (val.description|length > 120 ? '...' : '')}}</p>
                             <a href="{{val.node_id}}" class="read-more">Read More <i
                                     class="fas fa-arrow-right"></i></a>
